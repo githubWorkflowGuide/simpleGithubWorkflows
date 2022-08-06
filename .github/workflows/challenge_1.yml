@@ -10,21 +10,21 @@ on:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
     job1:
-        - name: print_the_date_ubuntu
-          runs-on: ubuntu-latest
+        runs-on: ubuntu-latest
+        steps:
           run: ${{ steps.date.outputs.date }}
     job2:
-        - name: print_the_date_macos
-          runs-on: macos-latest
+        runs-on: macos-latest
+        steps:
           run: ${{ steps.date.outputs.date }}
     job3:
-        - name: print_the_date_windows
-          runs-on: windows-latest
+        runs-on: windows-latest
+        steps:
           run: ${{ steps.date.outputs.date }}
     job4:
-        - name: print_the_date_windows
-          needs: [job1, job2, job3]
-          runs-on: windows-latest
+        needs: [job1, job2, job3]
+        runs-on: windows-latest
+        steps:
           run: ${{ steps.date.outputs.date }}
         
   
