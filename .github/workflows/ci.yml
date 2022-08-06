@@ -5,7 +5,7 @@ name: CI
 # Controls when the workflow will run
 on:
   # Triggers the workflow on push or pull request events but only for the "main" branch
-  pull_request
+  push
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -19,9 +19,14 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
 
+      - name: swift-format-lint
+        uses: Iron-Ham/swift-format-linter-action@v5
+        with:
+    # API Token
+          github-token: "${{ secrets.GITHUB_TOKEN }}"
       # Runs a single command using the runners shell
       - name: Run a one-line script
-        run: echo Hello, world!
+        run: linter ran!!
 
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
