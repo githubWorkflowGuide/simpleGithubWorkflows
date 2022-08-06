@@ -1,0 +1,30 @@
+# This is a basic workflow to help you get started with Actions
+
+name: print_the_date
+
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on push or pull request events but only for the "main" branch
+  push
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+    job1:
+        - name: print_the_date_ubuntu
+          runs-on: ubuntu-latest
+          run: ${{ steps.date.outputs.date }}
+    job2:
+        - name: print_the_date_macos
+          runs-on: macos-latest
+          run: ${{ steps.date.outputs.date }}
+    job3:
+        - name: print_the_date_windows
+          runs-on: windows-latest
+          run: ${{ steps.date.outputs.date }}
+    job4:
+        - name: print_the_date_windows
+          needs: [job1, job2, job3]
+          runs-on: windows-latest
+          run: ${{ steps.date.outputs.date }}
+        
+  
