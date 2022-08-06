@@ -17,9 +17,11 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - name: checkout_repo_in_workspace
       - uses: actions/checkout@v3
 
       - name: swift-format-lint
+        need: checkout_repo_in_workspace
         uses: Iron-Ham/swift-format-linter-action@v5
         with:
     # API Token
