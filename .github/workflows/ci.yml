@@ -5,12 +5,13 @@ name: CI
 # Controls when the workflow will run
 on:
   # Triggers the workflow on push or pull request events but only for the "main" branch
-  pull_request
+  push
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
   build:
+    name: build
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
@@ -28,3 +29,6 @@ jobs:
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
+          
+      - name: checkout_repo_in_workspace
+        uses: actions/checkout@v3
