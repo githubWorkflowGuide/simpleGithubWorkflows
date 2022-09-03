@@ -1,6 +1,6 @@
 name: PR comment
 on:
-  pull_request:
+  pull_request
 
 jobs:
   test:
@@ -11,7 +11,7 @@ jobs:
         uses: mshick/add-pr-comment@v1
         with:
           message: |
-            **PR** has been created.
+            **PR** has been created long back.
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           repo-token-user-login: 'github-actions[bot]' # The user.login for temporary GitHub tokens
           allow-repeats: false # This is the default
