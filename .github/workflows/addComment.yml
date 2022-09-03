@@ -7,7 +7,8 @@ jobs:
     name: add pr comment
     runs-on: ubuntu-latest
     steps:
-      - uses: mshick/add-pr-comment@v1
+      - name: hello
+        uses: mshick/add-pr-comment@v1
         with:
           message: |
             **PR** has been created.
